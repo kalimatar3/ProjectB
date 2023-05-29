@@ -5,7 +5,7 @@ using UnityEngine;
 public class MyMonoBehaviour : MonoBehaviour
 {
   private bool active;
-    protected void Reset()
+    protected virtual void Reset()
     {
         this.LoadComponents();
     }

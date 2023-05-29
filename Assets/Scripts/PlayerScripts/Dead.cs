@@ -5,7 +5,6 @@ using CodeMonkey.Utils;
 
 public class Dead : MonoBehaviour
 {
-    PlayerController playerController;
     private void Awake()
     {
         transform.Find("Deadbtn").GetComponent<Button_UI>().ClickFunc = () =>

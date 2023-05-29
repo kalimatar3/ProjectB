@@ -12,8 +12,4 @@ public class Grappling_Rope : MonoBehaviour
     {
         GrapplingGun_linerenderer = GetComponent<LineRenderer>();   
     }
-    void Update()
-    {
-     
-    }
 }

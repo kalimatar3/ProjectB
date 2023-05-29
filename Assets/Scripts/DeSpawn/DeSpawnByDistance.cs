@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DeSpawnByDistance : DeSpawn
 {
-    [SerializeField] protected Transform Base;
+    [SerializeField] protected Vector3 Base;
     [SerializeField] protected float Distance;
     protected override bool CanDeSpawn()
     {
-        if((this.transform.position - Base.position).sqrMagnitude >= Distance)
+        if((this.transform.parent.position - Base).magnitude >= Distance)
         {
             return true;
         }

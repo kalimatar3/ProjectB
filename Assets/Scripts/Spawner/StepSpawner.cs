@@ -7,12 +7,12 @@ public class StepSpawner : Spawner
     public static StepSpawner Instance => instance;
     public  List<string> StepName;
     [SerializeField] protected int j;
-
+    
     [Header("Number and potation of Step")]
     [SerializeField] protected int MinNumberof1Layer;
     [SerializeField] protected int MaxNumberof1Layer;
     [SerializeField] protected Vector2  Min , Max ;
-    public string horizontal = "horizontal",vertical = "vertical";
+    public string horizontal,vertical;
     protected override void Awake()
     {
         base.Awake();
@@ -27,6 +27,7 @@ public class StepSpawner : Spawner
     {
         base.LoadComponents();
         this.LoadStepName();
+        this.LoadData();
     }
     protected void LoadStepName()
     {
@@ -35,6 +36,15 @@ public class StepSpawner : Spawner
             if(StepName.Count < prefabs.Count) StepName.Add("");
             StepName[i] = prefabs[i].name;
         }
+    }
+    protected virtual void LoadData()
+    {
+       this.MinNumberof1Layer = 1;
+       MaxNumberof1Layer = 2;
+       Min =  new Vector2(5,6);
+       Max =  new Vector2(10,10);
+       horizontal = "horizontal";
+       vertical = "vertical";
     }
     protected int[] BinaryModeIndex(int length)
     {

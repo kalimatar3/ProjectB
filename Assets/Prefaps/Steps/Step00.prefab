@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Step00
       objectReference: {fileID: 0}
+    - target: {fileID: 2545525530685586551, guid: 7f49622f57f8f2543804c6e689edfe81, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659922692460308237, guid: 7f49622f57f8f2543804c6e689edfe81, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659922692460308237, guid: 7f49622f57f8f2543804c6e689edfe81, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3961835298406237378, guid: 7f49622f57f8f2543804c6e689edfe81, type: 3}
       propertyPath: m_RootOrder
       value: 0

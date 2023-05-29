@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guntip : MonoBehaviour
+public class Guntip : MyMonoBehaviour
 {
-    public Vector2 huongsung;
-    Vector2 MousePos;
-    public GameObject Player;
-    void Update()
+    protected Vector2 huongsung;
+    protected Vector2 MousePos;
+    protected void FixedUpdate()
     {
         MousePos = Input.mousePosition;
         MousePos = Camera.main.ScreenToWorldPoint(MousePos);
-        huongsung = new Vector2(MousePos.x - Player.transform.localPosition.x, MousePos.y - Player.transform.localPosition.y);
+        huongsung = new Vector2(MousePos.x - transform.position.x, MousePos.y - transform.position.y);
         transform.up = huongsung;
     }
 }

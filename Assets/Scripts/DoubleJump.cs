@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoubleJump : MonoBehaviour
 {
     Rigidbody2D myBody;
-    public PlayerController Player;
+    public PlayerMoving Player;
     int maxjumps = 2,jumps;
     void Start()
     {

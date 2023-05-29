@@ -36,11 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\RockScripts\RockDealer.cs" />
+     <Compile Include="Assets\Scripts\CrossBowScripts\ArrowDespawm.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\Button_UI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
      <Compile Include="Assets\Scripts\BossScripts\Lv1\Lv1Boss.cs" />
+     <Compile Include="Assets\Scripts\Dame\Damedealer.cs" />
      <Compile Include="Assets\Scripts\CreateScripts\HorizontalCreate.cs" />
      <Compile Include="Assets\Scripts\CrossBowScripts\CrossBowTrap.cs" />
      <Compile Include="Assets\Scripts\Spawner\StepSpawner.cs" />
@@ -51,10 +54,13 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\Scripts\MapScripts\Ground.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerReciver.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerCtrl.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
-     <Compile Include="Assets\Scripts\BossScripts\Lv1\Actions\Looking.cs" />
+     <Compile Include="Assets\Scripts\Dame\DameDealtoPlayer.cs" />
+     <Compile Include="Assets\Scripts\BossScripts\Lv1\Actions\Seeing.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\StepsScripts\StepBaseScript.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
@@ -69,13 +75,15 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+     <Compile Include="Assets\Scripts\CrossBowScripts\ArReciver.cs" />
      <Compile Include="Assets\Scripts\BulletScripts\SatcheloutScript.cs" />
      <Compile Include="Assets\Scripts\StepsScripts\Step02.cs" />
      <Compile Include="Assets\LoadingScene\Scence Scripts\GameHandler.cs" />
+     <Compile Include="Assets\Scripts\Grappling_Rope.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\GrapplingScripts\GrapplingBullet.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\UI_Sprite.cs" />
-     <Compile Include="Assets\Scripts\PlayerScripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMoving.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\Scripts\Spawner\BulletSpawner.cs" />
      <Compile Include="Assets\Scripts\StepsScripts\Step03.cs" />
@@ -86,11 +94,14 @@
      <Compile Include="Assets\Scripts\Camera\BossFightCam.cs" />
      <Compile Include="Assets\LoadingScene\Scence Scripts\GameSceneUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+     <Compile Include="Assets\Scripts\Explosion\SatchelOutExplosion.cs" />
      <Compile Include="Assets\Scripts\DoubleJump.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerCtrl1.cs" />
      <Compile Include="Assets\Scripts\DeSpawn\DeSpawn.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\LoadingScene\Scence Scripts\LoaderCallback.cs" />
+     <Compile Include="Assets\Scripts\BossScripts\Lv1\BossCtrl.cs" />
      <Compile Include="Assets\Scripts\CheckPoint\EnableGrappling.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\Scripts\BossScripts\Boss.cs" />
@@ -103,8 +114,11 @@
      <Compile Include="Assets\Scripts\RockScripts\RockManager.cs" />
      <Compile Include="Assets\Scripts\RockScripts\RockFall.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
+     <Compile Include="Assets\Scripts\Explosion\RockExplosion.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Scripts\DeSpawn\DeSpawnByCollide.cs" />
+     <Compile Include="Assets\Scripts\Dame\DameReciver.cs" />
+     <Compile Include="Assets\Scripts\Explosion\ExplodeDealer.cs" />
      <Compile Include="Assets\CodeMonkey\Assets.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
@@ -126,6 +140,7 @@
      <Compile Include="Assets\Scripts\CheckPoint\CheckPoint.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\UI_Bar.cs" />
+     <Compile Include="Assets\Scripts\CrossBowScripts\ArDealer.cs" />
      <Compile Include="Assets\Scripts\RockScripts\RockTarget.cs" />
      <Compile Include="Assets\Scripts\Manager\GameMaster.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -145,8 +160,6 @@
      <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
-     <Compile Include="Assets\Scripts\Dame\DameReciver.cs" />
-     <Compile Include="Assets\Scripts\Dame\Damedealer.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

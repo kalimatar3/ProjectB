@@ -8,21 +8,21 @@ public class Ground : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stunning") )
         {
-            PlayerController.Instance.Grounded = true;
+            PlayerMoving.Instance.Grounded = true;
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stunning") )
         {
-            PlayerController.Instance.Grounded = true;
+            PlayerMoving.Instance.Grounded = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
   if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Stunning") )
         {
-          PlayerController.Instance.Grounded = false;
+          PlayerMoving.Instance.Grounded = false;
         }
     }
 }

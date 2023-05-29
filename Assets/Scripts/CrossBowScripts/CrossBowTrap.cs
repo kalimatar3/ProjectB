@@ -7,14 +7,13 @@ public class CrossBowTrap : MonoBehaviour
     [SerializeField] protected Transform Base,Target;
     [SerializeField] protected float ReloadTime, UpComingTime,StartTime;
     [SerializeField] protected bool Shotted,UpComing,TimeRun,starting;
-    [SerializeField] GameObject Arrow;
+    protected Transform Arrow;
     [SerializeField] protected float ArrowSpeed;
-     protected Vector3 TarGetPosition;
-     protected float NextShot;
+    protected Vector3 TarGetPosition;
+    protected float NextShot;
     protected Vector3 GunTip;
     protected void FixedUpdate()
     {
-        this.DeSpawnArrow();
         if(starting)
         ShotArrow();
     }
@@ -88,19 +87,8 @@ public class CrossBowTrap : MonoBehaviour
         yield  return new WaitForSeconds(StartTime);
         starting = true;
     }
-    protected void DeSpawnArrow()
-    {
-        if((Arrow.transform.position - Base.transform.position).magnitude > 3000f )
-        {
-        Arrow.transform.position =  Base.transform.position;
-        Arrow.SetActive(false);
-        }
-    }
     protected void SpawnArrow()
     {
-    Arrow.transform.position =  Base.transform.position;
-    Arrow.transform.rotation = Base.transform.rotation;
-    Arrow.SetActive(true);
-    Arrow.GetComponent<Rigidbody2D>().velocity =  GunTip*ArrowSpeed;
+        Arrow = BulletSpawner.Instance.Spawn(BulletSpawner.Arrow,Base.transform.position,Base.transform.rotation);
     }
 }

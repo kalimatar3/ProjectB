@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GrapplingGun : MyMonoBehaviour
 {
-    [SerializeField] protected SpringJoint2D m_springJoint2D;
-    protected  Rigidbody2D MyBody;
+    protected SpringJoint2D m_springJoint2D;
+    protected Rigidbody2D MyBody;
     protected Vector2 BulletPos,tachtrongluc;
     //DrawRope
     [SerializeField] protected AnimationCurve AnimationRopeWave;
@@ -30,8 +30,13 @@ public class GrapplingGun : MyMonoBehaviour
     {
         Mindistance = 3f;
         NextFire = 0;
+    }
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
         GrapplingGun_linerenderer = GetComponent<LineRenderer>();
         MyBody = GetComponentInParent<Rigidbody2D>();
+        m_springJoint2D = GetComponentInParent<SpringJoint2D>();
     }
     protected void FixedUpdate()
     {    
@@ -93,7 +98,7 @@ public class GrapplingGun : MyMonoBehaviour
         }
         if (m_springJoint2D.enabled == true)
         {     
-            if(PlayerController.Instance.move * tachtrongluc.x < 0 )  
+            if(PlayerMoving.Instance.move * tachtrongluc.x < 0 )  
             MyBody.AddForce(new Vector2(-tachtrongluc.x * 50f,0));
         }
 

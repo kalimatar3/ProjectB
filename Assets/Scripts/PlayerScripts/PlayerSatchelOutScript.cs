@@ -54,12 +54,12 @@ public class PlayerSatchelOutScript : MyMonoBehaviour
         if(objects2 != null)   
         {
             Instantiate(ExplodePrefab,FiredBullet.transform.position,FiredBullet.transform.rotation);
-            PlayerController.Instance.DoStun(0.5f);
+        //    PlayerMoving.Instance.DoStun(0.25f);
         }
         foreach (Collider2D obj in objects2)
         {   
-            Distance = obj.transform.position - FiredBullet.transform.position;
-            obj.GetComponent<Rigidbody2D>().AddForce(new Vector2(Vector3.Normalize(Distance).x * force,Vector3.Normalize(Distance).y * (force+100f))); 
+            Distance = (obj.transform.position - FiredBullet.transform.position);
+            obj.GetComponentInParent<Rigidbody2D>().AddForce(new Vector2(Vector3.Normalize(Distance).x * force,Vector3.Normalize(Distance).y * (force+ 10f))); 
         }
         Destroy(FiredBullet.gameObject);
         } 

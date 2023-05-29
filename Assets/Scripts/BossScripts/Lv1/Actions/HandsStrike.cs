@@ -6,7 +6,7 @@ public class HandsStrike : MyMonoBehaviour
 {
     [SerializeField] protected bool Upcoming,Strike;
     [SerializeField] protected float UpcomingTime,StrikeTime;
-    [SerializeField] protected Transform Base,Target;
+    [SerializeField] public Transform Base,Target;
     [SerializeField] protected GameObject Hand;
     [SerializeField] protected float CurrenttargetPos;
     [SerializeField] protected float CurrentbasePos;
@@ -23,11 +23,16 @@ public class HandsStrike : MyMonoBehaviour
         }
         Base.transform.up = Target.transform.position - Base.transform.position ;
      }
-     protected void RandomTarGet()
+     public void RandomTarGet()
      {
+        if(Lv1Boss.Instance.FoundPlayer) 
+        {
+           Target.position = this.Base.transform.position + (PlayerCtrl.Instance.transform.position - this.Base.transform.position).normalized * 60;
+            return;
+        }
         List<float> thislist = new List<float>() {100/6f,100/6,100/6,100/6,100/6,100/6};
         List<float> alist = Rand.Main(thislist); 
-        CurrenttargetPos =alist[0];
+        CurrenttargetPos = alist[0];
         if(CurrenttargetPos >= 3 && CurrenttargetPos <= 5)
         {
         thislist = new List<float>() {100/3,100/3,100/3,0,0,0}; 

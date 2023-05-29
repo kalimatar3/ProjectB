@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damedealer : MonoBehaviour
+public class Damedealer : MyMonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected int Dame;
+    [SerializeField] protected float Stuntime;
+    protected virtual void SendDametoObj(Transform obj)
     {
-        
+        DameReciver dameReciver = null;
+        dameReciver = obj.GetComponentInChildren<DameReciver>();
+        if(dameReciver == null) return;
+        this.SendDame(dameReciver);
     }
-
-    // Update is called once per frame
-    void Update()
+    protected virtual void SendDame(DameReciver dameReciver)
     {
-        
+        dameReciver.ReducedHp(this.Dame);
+        return;
     }
 }

@@ -2,25 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockManager : MonoBehaviour
+public class RockManager : MyMonoBehaviour
 {
     // Singleton
     private static RockManager instance;
-    public int CurrentThunderPercent;
-    [SerializeField] private float ScanStepTime;
     public static RockManager Instance {get => instance;}
-    public float TakeDamezone;
+    public int CurrentThunderPercent;
+    public float ImpactCircle;
     public float RockUpComingTime;
-    [SerializeField] private float ZoneTakeStep;
-    [SerializeField] private LayerMask StepLayer;
-    [SerializeField] private float CreateThunderTime;
-    [SerializeField] private int i, n;
-
-    [SerializeField] protected GameObject RockTarget;
-    [SerializeField] protected int[] h  = new int[30];
-    protected GameObject ThisRockTarget;
-    private Vector3 tamvungtaoset;
-    protected void Awake()
+    protected float Timerunner;
+    protected GameObject ThisTarget;
+    [SerializeField]protected Vector3 FallingZone;
+    [SerializeField] protected float ScanStepTime;
+    [SerializeField] protected float TakeStepCircle;
+    [SerializeField] protected LayerMask StepLayer;
+    [SerializeField] protected GameObject Target;
+    [SerializeField] protected int[] TakeStepArray  = new int[30];
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadData();
+    }
+    protected virtual void LoadData()
+    {
+        this.CurrentThunderPercent = 50;
+        this.ScanStepTime = 1;
+        this.RockUpComingTime = 1;
+        this.ImpactCircle = 5;
+        this.TakeStepCircle = 5;
+        this.StepLayer = LayerMask.NameToLayer("Step");
+    }
+    protected override void Awake()
     {
         if(instance != null && instance != this)
         {
@@ -31,36 +43,31 @@ public class RockManager : MonoBehaviour
             instance = this;
         }
     }
-    protected void Start()
+    protected override void Start()
     {
-        tamvungtaoset = PlayerController.Instance.transform.position + new Vector3(0, 10, 0);
+        FallingZone = PlayerMoving.Instance.transform.position + new Vector3(0, 5, 0);
     }
     protected void FixedUpdate()
     {
-        this.ScanStepForThundering();
+        this.ScanStep();
     }
-    protected void ScanStepForThundering()
+    
+    protected void ScanStep()
     {
-        CreateThunderTime = CreateThunderTime + 1f * Time.deltaTime;
-         Collider2D[] objects = Physics2D.OverlapCircleAll(tamvungtaoset, ZoneTakeStep, StepLayer);
-            n = objects.Length;
-            if (objects.Length <= i)
+        int i = 0;
+        Timerunner = Timerunner + 1f * Time.deltaTime;
+        Collider2D[] objects = Physics2D.OverlapCircleAll(FallingZone, TakeStepCircle, StepLayer);
+        if (i >= objects.Length)   i = 0;
+        if (Timerunner > ScanStepTime)
+        {
+            Timerunner = 0;
+            if(objects.Length != 0 && RockManager.Instance.CurrentThunderPercent != 0)
             {
-                i = 0;
-            }   
-                if (CreateThunderTime > ScanStepTime)
-                {
-                    CreateThunderTime = 0;
-                    if(objects.Length != 0 && RockManager.Instance.CurrentThunderPercent != 0)
-                    {
-                        h[i] = Random.Range(0, 100 / RockManager.Instance.CurrentThunderPercent);
-                        if (h[i] == (100 / RockManager.Instance.CurrentThunderPercent) - 1 ) 
-                        {
-                        ThisRockTarget = Instantiate(RockTarget,objects[i].transform.position,objects[i].transform.rotation);
-                        }
-                        i++;
-                    }
-                    tamvungtaoset = PlayerController.Instance.transform.position + new Vector3(0,10,0);
-                }
+            TakeStepArray[i] = Random.Range(0, 100 / RockManager.Instance.CurrentThunderPercent);
+            if (TakeStepArray[i] == (100 / RockManager.Instance.CurrentThunderPercent) - 1 ) ThisTarget = Instantiate(Target,objects[i].transform.position,objects[i].transform.rotation);
+            i++;
+            }
+            FallingZone = PlayerMoving.Instance.transform.position + new Vector3(0,10,0);
+        }
     }
 }
